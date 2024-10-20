@@ -1,0 +1,31 @@
+type Query {
+    exercise(id: Int!): Exercise
+    workout(id: Int!): Workout
+    me: User
+}
+
+type User {
+    id: Int!
+    username: String!
+    email: String!
+    password: String!
+    workouts: [Workout]!
+}
+
+type Workout {
+    id: Int!
+    comment: String
+    user: User!
+    sets: [WorkoutSet]
+}
+
+type WorkoutSet {
+    workoutId: Int!
+    position: Int!
+    exercise: Exercise!
+}
+
+type Exercise {
+    id: Int!
+    name: String!
+}
